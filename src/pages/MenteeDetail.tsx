@@ -1,0 +1,81 @@
+import { useParams, useNavigate } from 'react-router-dom';
+import Sidebar from '@/components/dashboard/Sidebar';
+import ProfileHeader from '@/components/dashboard/ProfileHeader';
+import TodoList from '@/components/dashboard/TodoList';
+import ProgressCard from '@/components/dashboard/ProgressCard';
+import StudyTimeCard from '@/components/dashboard/StudyTimeCard';
+import AssignmentCard from '@/components/dashboard/AssignmentCard';
+import FeedbackCard from '@/components/dashboard/FeedbackCard';
+import QnASection from '@/components/dashboard/QnASection';
+import ReportSection from '@/components/dashboard/ReportSection';
+import CalendarWidget from '@/components/dashboard/CalendarWidget';
+import EventWidget from '@/components/dashboard/EventWidget';
+import SideTodoList from '@/components/dashboard/SideTodoList';
+import MemoWidget from '@/components/dashboard/MemoWidget';
+import { ArrowLeft } from 'lucide-react';
+
+const MenteeDetail = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen flex flex-col lg:flex-row bg-background">
+      {/* 왼쪽 사이드바 */}
+      <Sidebar />
+      
+      {/* 메인 콘텐츠 */}
+      <main className="flex-1 p-4 md:p-6 overflow-auto">
+        <div className="max-w-5xl mx-auto">
+          {/* 뒤로가기 버튼 */}
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 transition-colors"
+          >
+            <ArrowLeft size={20} />
+            <span className="text-sm">멘티 목록으로</span>
+          </button>
+
+          {/* 프로필 헤더 */}
+          <ProfileHeader />
+          
+          {/* 상단 그리드 - 반응형 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+            {/* TO DO LIST */}
+            <div className="lg:col-span-1">
+              <TodoList />
+            </div>
+            
+            {/* 오른쪽 통계 카드들 */}
+            <div className="lg:col-span-2 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ProgressCard />
+                <StudyTimeCard />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <AssignmentCard />
+                <FeedbackCard />
+              </div>
+            </div>
+          </div>
+          
+          {/* 질의응답 섹션 */}
+          <QnASection />
+          
+          {/* 리포트 섹션 */}
+          <ReportSection />
+        </div>
+      </main>
+      
+      {/* 오른쪽 사이드바 - 반응형 */}
+      <aside className="w-full lg:w-72 xl:w-80 p-4 border-t lg:border-t-0 lg:border-l border-border overflow-auto shrink-0">
+        <CalendarWidget />
+        <EventWidget />
+        <SideTodoList />
+        <MemoWidget />
+      </aside>
+    </div>
+  );
+};
+
+export default MenteeDetail;

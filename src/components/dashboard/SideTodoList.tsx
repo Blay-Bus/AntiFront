@@ -18,9 +18,9 @@ const SideTodoList = () => {
   return (
     <div className="mt-4">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-foreground">TO DO LIST</h3>
+        <h3 className="font-bold text-foreground text-sm md:text-base">TO DO LIST</h3>
         <button className="p-1 hover:bg-muted rounded-lg transition-colors border border-border">
-          <Plus size={16} />
+          <Plus size={14} className="md:w-4 md:h-4" />
         </button>
       </div>
       
@@ -28,11 +28,11 @@ const SideTodoList = () => {
         {todoItems.map((item) => (
           <div
             key={item.id}
-            className="card-dark p-3 rounded-xl flex items-center justify-between"
+            className="card-dark p-2.5 md:p-3 rounded-xl flex items-center justify-between"
           >
-            <span className="text-sm">{item.title}</span>
+            <span className="text-xs md:text-sm truncate">{item.title}</span>
             <div
-              className={`w-3 h-3 rounded-full border-2 ${
+              className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full border-2 shrink-0 ml-2 ${
                 item.completed
                   ? 'bg-accent border-accent'
                   : 'border-muted-foreground'

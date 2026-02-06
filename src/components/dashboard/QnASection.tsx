@@ -18,17 +18,17 @@ const QnASection = () => {
     <div className="mt-6">
       <h2 className="section-title mb-4">질의응답</h2>
       
-      <div className="card-glass p-6">
-        <div className="flex gap-6">
+      <div className="card-glass p-4 md:p-6">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
           {/* 질문 목록 */}
-          <div className="flex flex-col gap-2">
+          <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
             {questions.map((q, index) => (
-              <div key={q.id} className="flex items-center gap-2">
+              <div key={q.id} className="flex items-center gap-2 shrink-0">
                 {index > 0 && (
-                  <div className={`w-2 h-2 rounded-full ${q.active ? 'bg-accent' : 'bg-muted'}`} />
+                  <div className={`w-2 h-2 rounded-full hidden md:block ${q.active ? 'bg-accent' : 'bg-muted'}`} />
                 )}
                 <span
-                  className={`px-4 py-2 rounded-full text-sm font-medium ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap ${
                     q.active
                       ? 'bg-muted text-foreground'
                       : 'text-muted-foreground'

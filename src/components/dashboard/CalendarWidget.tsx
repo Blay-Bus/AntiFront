@@ -14,18 +14,18 @@ const CalendarWidget = () => {
   const activeDays = [5, 12, 13];
   
   return (
-    <div className="card-glass p-4">
+    <div className="card-glass p-3 md:p-4">
       {/* 헤더 */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3 md:mb-4">
         <button className="p-1 hover:bg-muted rounded-lg transition-colors">
-          <ChevronLeft size={18} />
+          <ChevronLeft size={16} className="md:w-[18px] md:h-[18px]" />
         </button>
-        <span className="font-bold text-foreground">Feb 2026</span>
+        <span className="font-bold text-sm md:text-base text-foreground bg-primary text-primary-foreground px-3 py-1 rounded-full">Feb 2026</span>
         <button className="p-1 hover:bg-muted rounded-lg transition-colors">
-          <ChevronRight size={18} />
+          <ChevronRight size={16} className="md:w-[18px] md:h-[18px]" />
         </button>
         <button className="p-1 hover:bg-muted rounded-lg transition-colors ml-2">
-          <Search size={18} />
+          <Search size={16} className="md:w-[18px] md:h-[18px]" />
         </button>
       </div>
       
@@ -50,7 +50,7 @@ const CalendarWidget = () => {
             {week.map((date, dayIndex) => (
               <div
                 key={dayIndex}
-                className={`calendar-day ${
+                className={`calendar-day text-xs md:text-sm ${
                   date === today
                     ? 'calendar-day-today'
                     : activeDays.includes(date || 0)
