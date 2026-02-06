@@ -17,7 +17,6 @@ const RightSidebar = ({ showMemo = false, mobileOpen = false, onMobileClose }: R
     const mentorName = user.nickname || '멘토';
 
     // Prevent body scroll when mobile menu is open
-    // Prevent body scroll when mobile menu is open
     useEffect(() => {
         if (mobileOpen) {
             document.body.style.overflow = 'hidden';
@@ -44,7 +43,7 @@ const RightSidebar = ({ showMemo = false, mobileOpen = false, onMobileClose }: R
 
             <aside
                 className={`
-                    ${mobileOpen ? 'fixed inset-y-0 right-0 z-50 w-80 shadow-2xl flex flex-col' : 'hidden lg:flex lg:w-72 xl:w-80'}
+                    ${mobileOpen ? 'fixed inset-y-0 right-0 z-50 w-80 shadow-2xl flex flex-col' : 'hidden lg:flex lg:flex-col lg:w-72 xl:w-80'}
                     bg-background p-4 border-t lg:border-t-0 lg:border-l border-border overflow-y-auto h-full shrink-0 scrollbar-hide transition-all duration-300
                 `}
             >
