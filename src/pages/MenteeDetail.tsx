@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import Sidebar from '@/components/dashboard/Sidebar';
 import ProfileHeader from '@/components/dashboard/ProfileHeader';
 import TodoList from '@/components/dashboard/TodoList';
@@ -9,19 +10,32 @@ import FeedbackCard from '@/components/dashboard/FeedbackCard';
 import QnASection from '@/components/dashboard/QnASection';
 import ReportSection from '@/components/dashboard/ReportSection';
 import RightSidebar from '@/components/dashboard/RightSidebar';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Menu } from 'lucide-react';
 
 const MenteeDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col lg:flex-row bg-background">
+    <div className="min-h-screen lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row bg-background">
       {/* 왼쪽 사이드바 */}
-      <Sidebar />
+      <Sidebar mobileOpen={isMobileMenuOpen} onMobileClose={() => setIsMobileMenuOpen(false)} />
 
       {/* 메인 콘텐츠 */}
       <main className="flex-1 p-4 md:p-6 overflow-y-auto h-full scrollbar-hide">
+        {/* 모바일 헤더 */}
+        <div className="md:hidden flex items-center justify-between mb-4">
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="text-foreground hover:text-primary transition-colors"
+          >
+            <Menu size={24} />
+          </button>
+          <span className="font-outfit font-bold text-lg text-foreground">SeolStudy</span>
+          <div className="w-6" /> {/* Spacer */}
+        </div>
+
         <div className="max-w-5xl mx-auto">
           {/* 뒤로가기 버튼 */}
           <button
