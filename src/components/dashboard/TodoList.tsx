@@ -22,16 +22,16 @@ const TodoList = () => {
         {todoItems.map((item) => (
           <div key={item.id} className="flex items-center gap-3">
             <div
-              className={`w-3 h-3 rounded-full border-2 ${
+              className={`w-3 h-3 rounded-full border-2 shrink-0 ${
                 item.completed
                   ? 'bg-accent border-accent'
                   : 'border-muted-foreground'
               }`}
             />
-            <span className="subject-badge bg-secondary/20 text-secondary-foreground">
+            <span className="min-w-[60px] w-16 md:w-20 px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium bg-secondary/20 text-secondary-foreground text-center shrink-0">
               {item.subject}
             </span>
-            <span className="text-sm text-card-foreground">{item.task}</span>
+            <span className="text-xs md:text-sm text-card-foreground truncate">{item.task}</span>
           </div>
         ))}
       </div>

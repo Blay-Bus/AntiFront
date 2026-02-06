@@ -26,21 +26,21 @@ const monthlyReports: MonthlyReport[] = [
 
 const ReportSection = () => {
   return (
-    <div className="mt-6 grid grid-cols-2 gap-6">
+    <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* 주간 학습 리포트 */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="section-title">주간 학습 리포트</h2>
-          <button className="btn-accent text-sm">작성하기</button>
+          <h2 className="section-title text-base md:text-lg">주간 학습 리포트</h2>
+          <button className="btn-accent text-xs md:text-sm">작성하기</button>
         </div>
         
         <div className="space-y-2">
           {weeklyReports.map((report) => (
             <div key={report.week} className="report-row">
-              <span className="text-sm font-medium text-foreground w-12">{report.week}</span>
-              <span className="text-sm text-muted-foreground flex-1">{report.dateRange}</span>
+              <span className="text-xs md:text-sm font-medium text-foreground w-10 md:w-12 shrink-0">{report.week}</span>
+              <span className="text-xs md:text-sm text-muted-foreground flex-1 truncate">{report.dateRange}</span>
               {report.deadline && (
-                <span className="text-xs text-muted-foreground">{report.deadline}</span>
+                <span className="text-xs text-muted-foreground hidden md:block">{report.deadline}</span>
               )}
             </div>
           ))}
@@ -50,17 +50,17 @@ const ReportSection = () => {
       {/* 월간 학습 리포트 */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="section-title">월간 학습 리포트</h2>
-          <button className="btn-accent text-sm">작성하기</button>
+          <h2 className="section-title text-base md:text-lg">월간 학습 리포트</h2>
+          <button className="btn-accent text-xs md:text-sm">작성하기</button>
         </div>
         
         <div className="space-y-2">
           {monthlyReports.map((report) => (
             <div key={report.month} className="card-dark p-3 rounded-xl flex items-center gap-4">
-              <span className="text-sm font-medium w-12">{report.month}</span>
-              <span className="text-sm text-muted-foreground flex-1">{report.label}</span>
+              <span className="text-xs md:text-sm font-medium w-10 md:w-12 shrink-0">{report.month}</span>
+              <span className="text-xs md:text-sm text-muted-foreground flex-1">{report.label}</span>
               {report.deadline && (
-                <span className="text-xs text-muted-foreground">{report.deadline}</span>
+                <span className="text-xs text-muted-foreground hidden md:block">{report.deadline}</span>
               )}
             </div>
           ))}
