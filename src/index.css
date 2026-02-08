@@ -46,7 +46,7 @@
     --dark-card-foreground: 0 0% 95%;
 
     /* 그라디언트 */
-    --gradient-lavender: linear-gradient(135deg, hsl(200 70% 65%) 0%, hsl(200 40% 90%) 100%);
+    --gradient-lavender: linear-gradient(135deg, hsl(200 40% 90%) 0%, hsl(200 70% 65%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(200 25% 97%) 100%);
     --gradient-sidebar: linear-gradient(180deg, hsl(200 40% 92%) 0%, hsl(200 35% 85%) 100%);
 
