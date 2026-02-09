@@ -17,21 +17,20 @@ const TodoList = () => {
   return (
     <div className="card-dark p-4 h-full">
       <h2 className="text-accent font-bold mb-4">TO DO LIST</h2>
-      
+
       <div className="space-y-2">
         {todoItems.map((item) => (
           <div key={item.id} className="flex items-center gap-3">
             <div
-              className={`w-3 h-3 rounded-full border-2 shrink-0 ${
-                item.completed
-                  ? 'bg-accent border-accent'
-                  : 'border-muted-foreground'
-              }`}
+              className={`w-3 h-3 rounded-full border-2 shrink-0 ${item.completed
+                ? 'bg-accent border-accent'
+                : 'border-muted-foreground'
+                }`}
             />
-            <span className="min-w-[60px] w-16 md:w-20 px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium bg-secondary/20 text-secondary-foreground text-center shrink-0">
+            <span className="min-w-[60px] w-16 md:w-20 px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium bg-secondary/20 text-white/90 text-center shrink-0">
               {item.subject}
             </span>
-            <span className="text-xs md:text-sm text-card-foreground truncate">{item.task}</span>
+            <span className="text-xs md:text-sm text-white/90 truncate">{item.task}</span>
           </div>
         ))}
       </div>
